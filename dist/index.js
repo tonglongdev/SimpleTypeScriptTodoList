@@ -13,18 +13,18 @@ form.addEventListener("submit", function (event) {
         isChecked: false,
     };
     todoList.push(todo);
-    createTodo(todo, todoList.length - 1);
+    createTodo(todo);
     input.value = "";
     console.log(todoList);
 });
-function createTodo(todo, index) {
+function createTodo(todo) {
     const li = document.createElement("li");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     li.textContent = todo.text;
     li.appendChild(checkbox);
     checkbox.addEventListener("change", function () {
-        todoList[index].isChecked = checkbox.checked;
+        todo.isChecked = checkbox.checked;
         li.style.textDecoration = checkbox.checked ? "line-through" : "none";
     });
     list.append(li);

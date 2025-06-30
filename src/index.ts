@@ -15,17 +15,20 @@ const todoList: Todo[] = [];
 // LOGIC
 form.addEventListener("submit", function (event): void {
     event.preventDefault();
+
     const todo: Todo = {
         text: input.value.trim() || "Sample",
         isChecked: false,
     };
     todoList.push(todo);
-    createTodo(todo, todoList.length - 1)
+
+    createTodo(todo)
     input.value = "";
+
     console.log(todoList);
 })
 
-function createTodo(todo: Todo, index: number): void {
+function createTodo(todo: Todo): void {
     const li = document.createElement("li");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -34,9 +37,9 @@ function createTodo(todo: Todo, index: number): void {
     li.appendChild(checkbox);
 
     checkbox.addEventListener("change", function () {
-        todoList[index].isChecked = checkbox.checked;
+        todo.isChecked = checkbox.checked;
         li.style.textDecoration = checkbox.checked ? "line-through" : "none";
     })
-    
+
     list.append(li);
 }
