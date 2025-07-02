@@ -1,13 +1,20 @@
-class Hello {
-    userName: string;
-    age: number;
-    constructor(userName: string, age: number){
-        this.userName = userName;
-        this.age = age;
-    };
-    greet(){
-        console.log("hello")
-    };
+interface User {
+  userName: string;
+  age: number;
+  greet(): void;
 }
-const user1 = new Hello("Long", 12);
+class Person implements User {
+  // userName: string;
+  // age: number;
+  // #password: number = 123;
+  constructor(public userName: string, public age: number) {
+    // this.userName = userName;
+    // this.age = age;
+  }
+  greet() {
+    console.log("Person");
+  }
+}
+const user1 = new Person("Long", 12);
+console.log(user1);
 user1.greet();
