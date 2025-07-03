@@ -4,9 +4,7 @@
 //   name: string;
 //   age: number;
 // }
-// function testGeneric<T>(param: T[]): T[] {
-//   return param;
-// }
-// testGeneric<string>(["Long"]);
-// testGeneric<number>([123]);
-// testGeneric<Example>([{ name: "Long", age: 12 }]);
+function printLength(arr) {
+    return arr.length * 2;
+}
+console.log(printLength([1, 2, 3, 4]));
