@@ -4,7 +4,15 @@
 //   name: string;
 //   age: number;
 // }
-function printLength(arr) {
-    return arr.length * 2;
+function isCat(animal) {
+    return animal.isMeow !== undefined;
 }
-console.log(printLength([1, 2, 3, 4]));
+function whatAnimal(animal) {
+    if (isCat(animal)) {
+        console.log("this is a cat!");
+    }
+    else {
+        console.log("this is a dog!");
+    }
+}
+whatAnimal({ isMeow: true });
